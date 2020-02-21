@@ -55,10 +55,54 @@ function addManager() {
     })
 }
 function addEngineer() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name"
+
+        }, {
+            type: "input",
+            message: "What is your email?",
+            name: "email"
+        }, {
+            type: "input",
+            message: "What is your GitHub username?",
+            name: "gitHubUserName"
+        }
+    ]).then(function (input) {
+
+        var engineer = new Engineer(input.name, id++, input.email, input.gitHubUserName)
+        allEmployees.push(engineer)
+        console.log(allEmployees)
+        askQuestions()
+    })
 
 }
 
 function addIntern() {
+    inquirer.prompt([
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "name"
+
+        }, {
+            type: "input",
+            message: "What is your email?",
+            name: "email"
+        }, {
+            type: "input",
+            message: "What is your school Name?",
+            name: "schoolname"
+        }
+    ]).then(function (input) {
+
+        var intern = new Intern(input.name, id++, input.email, input.schoolname)
+        allEmployees.push(intern)
+        console.log(allEmployees)
+        askQuestions()
+    })
 
 }
 
