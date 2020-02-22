@@ -23,12 +23,9 @@ function askQuestions() {
             case "add Intern":
                 addIntern()
                 break
-
-
         }
     })
 }
-
 
 function addManager() {
     inquirer.prompt([
