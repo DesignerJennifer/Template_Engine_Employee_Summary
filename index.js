@@ -104,3 +104,5 @@ function addIntern() {
 }
 
 askQuestions()
+
+console.log(askQuestions)
