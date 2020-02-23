@@ -3,16 +3,21 @@ var id = 1
 var allEmployees = []
 var Manager = require("./lib/manager")
 var Engineer = require("./lib/engineer")
-var Intern = require("./lib/intern")
+var Intern = require("./lib/intern");
+var render = require("./lib/htmlrenderer.js");
+const path = require("path");
+const fs = require("fs");
 
+const OUTPUT_DIR = path.resolve(__dirname, "output");
+const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 function askQuestions() {
     inquirer.prompt([{
         type: "list",
         message: "What do you want to do?",
-        choices: ["add Manager", "add Engineer", "add Intern"],
+        choices: ["add Manager", "add Engineer", "add Intern", "I would not like to add more team members"],
         name: "addEmployee"
-    }]).then(function (input) {
+    }]).then(input => {
         switch (input.addEmployee) {
             case "add Manager":
                 addManager()
@@ -23,6 +28,8 @@ function askQuestions() {
             case "add Intern":
                 addIntern()
                 break
+            case "I would not like to add more team members":
+                buildTeam()
         }
     })
 }
@@ -105,4 +112,13 @@ function addIntern() {
 
 askQuestions()
 
-console.log(askQuestions)
+// Create the output directory if the output path doesn't exist
+function buildTeam() {
+    // Create the output directory if the output path doesn't exist
+    if (!fs.existsSync(OUTPUT_DIR)) {
+        fs.mkdirSync(OUTPUT_DIR)
+    }
+    fs.writeFileSync(outputPath, render(allEmployees), "utf-8");
+}
+
+
