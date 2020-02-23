@@ -3,24 +3,24 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <title>My Team</title>
   </head>
   <body>
+
     <div class="row">
-      <div class="grid-example col s12 deep-purple lighten-1 white-text">
-        <span class="center-align"><h2>MY TEAMS</h2></span>
+      <div class="col-12 bg-primary text-white">
+        <span class="text-center"><h1>MY TEAMS</h1></span>
       </div>
     </div>
-      <div class="card-content white-text" {{ team }}></div>
+
+      <div class="card-deck">{{ team }}</div>
       </div>
     </div>
-    <script type="text/html" src="htmlrenderer.js"
+
+    <script type="text/html" src="htmlrenderer.js"></script>
     <script src="index.js"></script>
+
   </body>
 </html>
